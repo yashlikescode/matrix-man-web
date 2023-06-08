@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Determinant Calculator</title>
+    <style>
+        html,
+        body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        z-index: 1;
+        }
+        .btn{
+            margin:1vw;
+            width:30vw;
+            height:5vh;
+            font-size: 3vh;
+            border-radius:2vw;
+            background-color: #4287f5;
+            color:white;
+        }
+
+        .txtb{
+            margin:1vw;
+            height:4vh;
+            width:12vw;
+            font-size:3vh;
+        }
+        .inp{
+            margin:3vh;
+            font-size:3vh;
+            justify-content: center;
+            display:flex;
+        }
+
+        #dete{
+            flex:1;
+            width:20vw;
+            text-align:right;
+            padding:0;
+            margin:0;
+            font-size: 5vw;
+        }
+        #matr{
+            flex:1;
+            width:75vw;
+            right:3%;
+        }
+        .matrix {
+            position: relative;
+            display: inline-block;
+            margin-left: 5vw;
+            margin-top:5vw;
+        }
+        .r1,.r2,.r3,.r4{
+            border-left: 0.5vw solid #000;
+            border-right: 0.5vw solid #000;
+        }
+
+        .matrix::before,
+        .matrix::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            /* background-color: #000; */
+        }
+
+        .matrix::before {
+            top: -5px;
+            bottom: -5px;
+            left: -5px;
+        }
+
+        .matrix::after {
+            top: -5px;
+            bottom: -5px;
+            right: -5px;
+        }
+
+        .banner{
+            height:5vh;
+            padding-bottom:2vh;
+            padding-top:1.5vh;
+            border:0;
+            margin:0;
+            margin-bottom:6vh;
+            background-color: #4287f5;
+            font-size:4vh;
+            justify-content: center;
+            color:#ffffff;
+        }
+        .radio-group {
+        font-size: 5vw;
+        justify-content: center;
+        margin-bottom:4vh;
+        background-color:#ccd7e8;
+        border-radius:2vw;
+        display:inline;
+        padding:3vw;
+        }
+
+        .radio-group label {
+        display: inline-block;
+        margin-right: 4vw; /* Adjust the spacing between radio buttons as needed */
+        }
+
+        .radio-group input[type="radio"] {
+        transform: scale(1.5) translateY(-0.1vh); /* Adjust the scale factor as needed */
+        margin-right:1vw; /* Adjust the spacing between radio buttons and text as needed */
+        justify-content: center;    
+    }
+
+
+    #ans{
+        font-size: 6vw;
+    }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div class="banner">Determinant Calculator</div>
+    <div class="radio-group">
+        
+        Order:
+        <label class="lab">
+          <input id="rad-2" style="margin-left:2vw;" type="radio" name="radio-group" value="2" >
+          2 x 2
+        </label>
+        <label class="lab">
+          <input id="rad-3" type="radio" name="radio-group" value="3" checked>
+          3 x 3
+        </label>
+        <label style="margin-right: 0vw;" class="lab">
+          <input id="rad-4" type="radio" name="radio-group" value="4">
+          4 x 4
+        </label>
+    </div>
+    <br>
+      
+
+    <div class="inp">
+        <span id="dete"> 
+            <div style="width:100%;height:5vh;"></div>
+            <span style="white-space: nowrap;">|A| =</span>
+        </span>
+        <div class="matrix" id="matr">
+            <div class="r1">
+                <input type="text" id="a11" class="txtb"><input class="txtb" id="a12" type="text"><input class="txtb" id="a13" type="text"><input class="txtb" id="a14" type="text"><br>
+            </div>
+            <div class="r2">
+                <input class="txtb" id="a21" type="text"><input class="txtb" id="a22" type="text"><input class="txtb" id="a23" type="text"><input class="txtb" id="a24" type="text"><br>
+            </div>
+            <div class="r3">
+                <input type="text" id="a31" class="txtb"><input class="txtb" id="a32" type="text"><input class="txtb" id="a33" type="text"><input class="txtb" id="a34" type="text"><br>
+            </div>
+            <div class="r4">
+                <input class="txtb" id="a41" type="text"><input class="txtb" id="a42" type="text"><input class="txtb" id="a43" type="text"><input class="txtb" id="a44" type="text"><br>
+            </div>
+        </div>
+    </div>
+
+    <input type="submit" class="btn" id="clr-btn" onclick="clearAll()" value="Clear All">
+    <input type="submit" class="btn" id="cal-btn" onclick="calculate()" value="Calculate">
+    
+    <br><br><br><br>
+    <div id="sol-blk" class="sol-block">
+        <label id="ans"></label>
+    </div>
+    
+</div>
+
+<script>
+
+    function clearAll(){
+            var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
+                for(let i = 0; i < 16; i++)
+                {
+                    document.getElementById(txt[i]).value='';
+                }
+                document.getElementById('ans').innerHTML='';
+    };
+
+    function calculate(){
+        var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
+            
+
+
+        
+        var rad2 = document.getElementById('rad-2');
+        var rad3 = document.getElementById('rad-3');
+        var rad4 = document.getElementById('rad-4');
+
+        var a11 = document.getElementById(txt[0]).value;
+        var a12 = document.getElementById(txt[1]).value;
+        var a21 = document.getElementById(txt[4]).value;
+        var a22 = document.getElementById(txt[5]).value;
+
+        if(rad2.checked)
+        {
+            let tx=['a11','a12','a21','a22'];
+            for(let i = 0; i < 4; i++)
+            {
+                if(document.getElementById(tx[i]).value=='')
+                {
+                    document.getElementById(tx[i]).value=0;
+                }
+            }
+
+            let answer = (a11*a22)-(a21*a12);
+
+            document.getElementById("ans").innerHTML = "Answer : |A| = "+answer.toString();
+
+        }
+        else if(rad3.checked)
+        {
+            let tx=['a11','a12','a21','a22','a13','a31','a33','a23','a32'];
+            for(let i = 0; i < 9; i++)
+            {
+                if(document.getElementById(tx[i]).value=='')
+                {
+                    document.getElementById(tx[i]).value=0;
+                }
+            }
+
+        }
+        else
+        {
+            for(let i = 0; i < 16; i++)
+            {
+                if(document.getElementById(txt[i]).value=='')
+                {
+                    document.getElementById(txt[i]).value=0;
+                }
+            }
+
+        }
+
+    };
+
+
+    var textboxes = document.querySelectorAll('.txtb');
+
+    textboxes.forEach(function(textbox) {
+        textbox.addEventListener('input', function() {
+            if (this.classList.contains('txtb')) {
+                
+                let val = this.value;
+                val = val.toString();
+                if(val[0]=='-')
+                {
+                    val = val.replaceAll('-','');
+                    val = '-'+val;
+                }
+                else{
+                    val = val.replaceAll('-','');
+                }
+                this.value = val;
+                
+                // this.value = this.value.replace(/[^0-9-]/g, '');
+                // if(this.value[0]=='-')
+                // {
+                //     this.value.replaceAll('-','');
+                //     this.value = '-'+this.value;
+                //     console.log('hello')
+                // }
+                // else{
+                //     this.value.replaceAll('-','');
+                // }
+
+                           
+            }
+        });
+    });
+
+
+
+    
+    var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
+    var radioButtons = document.querySelectorAll('input[name="radio-group"]');
+
+    window.onload=function(){
+        for(var i = 0; i < 16; i++)
+                    {
+                        var txtbox = document.getElementById(txt[i]);
+                        if(txt[i] == 'a14' ||txt[i] == 'a24' ||txt[i] == 'a34' ||txt[i] == 'a44'||txt[i] == 'a43'||txt[i] == 'a42'||txt[i] == 'a41')
+                        {
+                            txtbox.style.display='none';
+                        }
+                        else{
+                            txtbox.style.display='';
+                        }
+                    }
+                    var row1 = document.querySelector('.r1');
+                var row2 = document.querySelector('.r2');
+                var row3 = document.querySelector('.r3');
+                var row4 = document.querySelector('.r4');
+                    row1.style.borderColor = '#000000';
+                    row2.style.borderColor = '#000000';
+                    row3.style.borderColor = '#000000';
+                    row4.style.borderColor = '#ffffff';
+                    var matri = document.getElementById('matr');
+                matri.style.flexBasis='40%';
+                var inpublock = document.querySelector('.inp');
+                inpublock.style.marginRight='12%';
+    };
+  var indictor = 0;
+    radioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('change', function() {
+            if (this.checked) {
+                var radVal = this.value;
+                var row1 = document.querySelector('.r1');
+                var row2 = document.querySelector('.r2');
+                var row3 = document.querySelector('.r3');
+                var row4 = document.querySelector('.r4');
+                if(radVal==2)
+                {
+                    for(var i = 0; i < 16; i++)
+                    {
+                        var txtbox = document.getElementById(txt[i]);
+                        if(txt[i] == 'a11' ||txt[i] == 'a21' ||txt[i] == 'a12' ||txt[i] == 'a22')
+                        {
+                            txtbox.style.display='';
+                        }
+                        else{
+                            txtbox.style.display='none';
+                        }
+                    }
+                    
+                    row1.style.borderColor = '#000000';
+                    row2.style.borderColor = '#000000';
+                    row3.style.borderColor = '#ffffff';
+                    row4.style.borderColor = '#ffffff';
+                    var matri = document.getElementById('matr');
+                matri.style.flexBasis='1%';
+                var inpublock = document.querySelector('.inp');
+                indictor = 1;
+                inpublock.style.transform='translateX(-15vw)';
+                }
+                else if(radVal==3)
+                {
+                    for(var i = 0; i < 16; i++)
+                    {
+                        var txtbox = document.getElementById(txt[i]);
+                        if(txt[i] == 'a14' ||txt[i] == 'a24' ||txt[i] == 'a34' ||txt[i] == 'a44'||txt[i] == 'a43'||txt[i] == 'a42'||txt[i] == 'a41')
+                        {
+                            txtbox.style.display='none';
+                        }
+                        else{
+                            txtbox.style.display='';
+                        }
+                    }
+                    row1.style.borderColor = '#000000';
+                    row2.style.borderColor = '#000000';
+                    row3.style.borderColor = '#000000';
+                    row4.style.borderColor = '#ffffff';
+                    var matri = document.getElementById('matr');
+                matri.style.flexBasis='40%';
+                var inpublock = document.querySelector('.inp');
+                inpublock.style.marginRight='12%';
+                if(indictor == 1)
+                    inpublock.style.transform='translateX(2vw)';
+                    indictor = 0;
+                }
+                else
+                {
+                    for(var i = 0; i < 16; i++)
+                    {
+                        var txtbox = document.getElementById(txt[i]);
+                        txtbox.style.display='';
+                    }
+                    row1.style.borderColor = '#000000';
+                    row2.style.borderColor = '#000000';
+                    row3.style.borderColor = '#000000';
+                    row4.style.borderColor = '#000000';
+                    var matri = document.getElementById('matr');
+                matri.style.flexBasis='auto';
+                var inpublock = document.querySelector('.inp');
+                inpublock.style.marginRight='9%';
+                if(indictor == 1)
+                    inpublock.style.transform='translateX(3vw)';
+                    indictor = 0;
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
