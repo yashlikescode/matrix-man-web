@@ -114,6 +114,12 @@
     #ans{
         font-size: 6vw;
     }
+    .ansl{
+        text-align:left;
+        display:block;
+        margin-left:10vw;
+        margin-top:1vh;
+    }
     </style>
 </head>
 <body>
@@ -164,7 +170,14 @@
     
     <br><br><br><br>
     <div id="sol-blk" class="sol-block">
-        <label id="ans"></label>
+        <label id="ans"></label><br><br>
+        <label id="ans-l0" style="align-self:left">
+            <span style="color:#4287f5; margin-bottom:2vh;">Step-By-Step Solution: </span>
+            <br>By expanding the given determinant, we get,</label>
+        <label id="ans-l1" class="ansl"></label>
+        <label id="ans-l2" class="ansl"></label>
+        <label id="ans-l3" class="ansl"></label>
+        <label id="ans-l4" class="ansl"></label>
     </div>
     
 </div>
@@ -178,6 +191,10 @@
                     document.getElementById(txt[i]).value='';
                 }
                 document.getElementById('ans').innerHTML='';
+                document.getElementById('ans-l0').style.display = 'none';
+                document.getElementById('ans-l1').innerHTML='';
+                document.getElementById('ans-l2').innerHTML='';
+                document.getElementById('ans-l3').innerHTML='';
     };
 
     function calculate(){
@@ -190,10 +207,7 @@
         var rad3 = document.getElementById('rad-3');
         var rad4 = document.getElementById('rad-4');
 
-        var a11 = document.getElementById(txt[0]).value;
-        var a12 = document.getElementById(txt[1]).value;
-        var a21 = document.getElementById(txt[4]).value;
-        var a22 = document.getElementById(txt[5]).value;
+
 
         if(rad2.checked)
         {
@@ -206,9 +220,19 @@
                 }
             }
 
+            var a11 = document.getElementById(txt[0]).value;
+            var a12 = document.getElementById(txt[1]).value;
+            var a21 = document.getElementById(txt[4]).value;
+            var a22 = document.getElementById(txt[5]).value;
+
             let answer = (a11*a22)-(a21*a12);
 
-            document.getElementById("ans").innerHTML = "Answer : |A| = "+answer.toString();
+            document.getElementById("ans").innerHTML = `Answer : |A| = ${answer}`;
+            document.getElementById('ans-l0').style.display = 'block';
+            document.getElementById("ans-l1").innerHTML = `|A| =           [(${a11}*${a22})-(${a21}*${a12})]`;
+            document.getElementById("ans-l2").innerHTML = `|A| =           [(${a11*a22})-(${a21*a12})]`;
+            document.getElementById("ans-l3").innerHTML = `|A| =           ${answer}`;
+
 
         }
         else if(rad3.checked)
@@ -279,6 +303,7 @@
     var radioButtons = document.querySelectorAll('input[name="radio-group"]');
 
     window.onload=function(){
+        document.getElementById('ans-l0').style.display = 'none';
         for(var i = 0; i < 16; i++)
                     {
                         var txtbox = document.getElementById(txt[i]);
