@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Determinant Calculator</title>
-    <style>
-        html,
-        body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Roboto', sans-serif;
-        z-index: 1;
-        }
-        .btn{
+   <head>
+      <title>Adjoint Calculator</title>
+      <style>
+         html,
+         body {
+         margin: 0;
+         padding: 0;
+         font-family: 'Roboto', sans-serif;
+         z-index: 1;
+         }
+         .btn{
             margin:1vw;
             width:30vw;
-            height:5vh;
-            font-size: 3vh;
+            height:8vw;
+            font-size: 4vw;
             border-radius:2vw;
             background-color: #EA8479;
             color:white;
@@ -22,78 +22,89 @@
 
         .txtb{
             margin:1vw;
-            height:4vh;
+            height:6vw;
             width:12vw;
-            font-size:3vh;
+            font-size:4vw;
         }
         .inp{
-            margin:3vh;
-            font-size:3vh;
+            margin:3vw;
+            font-size:4vw;
             justify-content: center;
             display:flex;
         }
-
-        #dete{
-            flex:1;
-            width:20vw;
-            text-align:right;
+         .opt{
+            display: grid;
+            place-items: center;
+         }
+         #dete{
+         flex:1;
+         width:20vw;
+         text-align:right;
+         padding:0;
+         margin:0;
+         font-size: 5vw;
+         }
+         #deter{
             padding:0;
-            margin:0;
-            font-size: 5vw;
-        }
-        #matr{
-            flex:1;
-            width:75vw;
-            right:3%;
-        }
-        .matrix {
-            position: relative;
-            display: inline-block;
-            margin-left: 5vw;
-            margin-top:5vw;
-        }
-        .r1,.r2,.r3,.r4{
-            border-left: 0.5vw solid #000;
-            border-right: 0.5vw solid #000;
-        }
-
-        .matrix::before,
-        .matrix::after {
-            content: '';
-            position: absolute;
-            width: 5px;
-            /* background-color: #000; */
-        }
-
-        .matrix::before {
-            top: -5px;
-            bottom: -5px;
-            left: -5px;
-        }
-
-        .matrix::after {
-            top: -5px;
-            bottom: -5px;
-            right: -5px;
-        }
-
+         margin:0;
+         width:20vw;
+         font-size: 5vw;
+         transform:translateY(-20vw);
+         }
+         #matr{
+         flex:1;
+         width:75vw;
+         right:3%;
+         }
+         .matrix {
+         position: relative;
+         display: inline-block;
+         margin-left: 5vw;
+         margin-top:5vw;
+         }
+         .r1,.r2,.r3,.r4{
+         border-left: 0.5vw solid #000;
+         border-right: 0.5vw solid #000;
+         }
+         .rr1,.rr2,.rr3,.rr4{
+         border-left: 0.5vw solid #000;
+         border-right: 0.5vw solid #000;
+         }
+         .matrix::before,
+         .matrix::after {
+         content: '';
+         position: absolute;
+         width: 5px;
+         /* background-color: #000; */
+         }
+         .matrix::before {
+         top: -5px;
+         bottom: -5px;
+         left: -5px;
+         }
+         .matrix::after {
+         top: -5px;
+         bottom: -5px;
+         right: -5px;
+         }
+         
         .banner{
-            height:5vh;
-            padding-bottom:2vh;
-            padding-top:1.5vh;
+            height:9vw;
+            padding-bottom:2vw;
+            padding-top:3vw;
             border:0;
             margin:0;
-            margin-bottom:6vh;
+            margin-bottom:8vw;
             background-color: #EA8479;
-            font-size:4vh;
+            font-size:7vw;
             justify-content: center;
             color:#ffffff;
         }
         .radio-group {
         font-size: 5vw;
         justify-content: center;
-        margin-bottom:4vh;
-        background-color:#E9D89F;
+        margin-bottom:8vw;
+        background-color:#f5d4d1;
         border-radius:2vw;
         display:inline;
         padding:3vw;
@@ -105,284 +116,534 @@
         }
 
         .radio-group input[type="radio"] {
-        transform: scale(1.5) translateY(-0.1vh); /* Adjust the scale factor as needed */
+        transform: scale(1.5) translateY(-0.2vw); /* Adjust the scale factor as needed */
         margin-right:1vw; /* Adjust the spacing between radio buttons and text as needed */
         justify-content: center;    
     }
+         #ans{
+         font-size: 6vw;
+         }
 
+         .contact-links{
+  margin:1cm;
+}
+.clicklinks{
+  text-decoration: none;
+}
+.clickables{
+  border:solid rgba(0, 124, 191, 0.4) 1px;
+  padding:0.25cm;
+  border-radius:0.25cm;
+  display:grid;
+  place-items: center;
+}
+#logos{
 
-    #ans{
-        font-size: 6vw;
-    }
-    </style>
-</head>
-<body>
-<div align="center">
-    <div class="banner">Adjoint Calculator</div>
-    <div class="radio-group">
-        
-        Order:
-        <label class="lab">
-          <input id="rad-2" style="margin-left:2vw;" type="radio" name="radio-group" value="2" >
-          2 x 2
-        </label>
-        <label class="lab">
-          <input id="rad-3" type="radio" name="radio-group" value="3" checked>
-          3 x 3
-        </label>
-        <label style="margin-right: 0vw;" class="lab">
-          <input id="rad-4" type="radio" name="radio-group" value="4">
-          4 x 4
-        </label>
-    </div>
-    <br>
-      
+  margin:0.25cm;
+  width:1cm;
+  height:1cm;
+  border-radius: 0.1cm;
+}
+      </style>
+   </head>
+   <body>
+      <div align="center">
+         <div class="banner">Adjoint Calculator</div>
+         <div class="radio-group">
+            Order:
+            <label class="lab">
+            <input id="rad-2" style="margin-left:2vw;" type="radio" name="radio-group" value="2" >
+            2 x 2
+            </label>
+            <label class="lab">
+            <input id="rad-3" type="radio" name="radio-group" value="3" checked>
+            3 x 3
+            </label>
+            <label style="margin-right: 0vw;" class="lab">
+            <input id="rad-4" type="radio" name="radio-group" value="4">
+            4 x 4
+            </label>
+         </div>
+         <br>
+         <div class="inp">
+            <span id="dete">
+               <div style="width:100%;height:5vh;"></div>
+               <span style="white-space: nowrap;">[A] =</span>
+            </span>
+            <div class="matrix" id="matr">
+               <div class="r1" style="white-space: nowrap;">
+                  <input type="text" id="a11" class="txtb" inputmode="numeric"><input class="txtb" id="a12" type="text" inputmode="numeric"><input class="txtb" id="a13" type="text" inputmode="numeric"><input class="txtb" id="a14" type="text" inputmode="numeric"><br>
+               </div>
+               <div class="r2" style="white-space: nowrap;">
+                  <input class="txtb" id="a21" type="text" inputmode="numeric"><input class="txtb" id="a22" type="text" inputmode="numeric"><input class="txtb" id="a23" type="text" inputmode="numeric"><input class="txtb" id="a24" type="text" inputmode="numeric"><br>
+               </div>
+               <div class="r3" style="white-space: nowrap;">
+                  <input type="text" id="a31" class="txtb" inputmode="numeric"><input class="txtb" id="a32" type="text" inputmode="numeric"><input class="txtb" id="a33" type="text" inputmode="numeric"><input class="txtb" id="a34" type="text" inputmode="numeric"><br>
+               </div>
+               <div class="r4" style="white-space: nowrap;">
+                  <input class="txtb" id="a41" type="text" inputmode="numeric"><input class="txtb" id="a42" type="text" inputmode="numeric"><input class="txtb" id="a43" type="text" inputmode="numeric"><input class="txtb" id="a44" type="text" inputmode="numeric"><br>
+               </div>
+            </div>
+         </div>
+         <input type="submit" class="btn" id="clr-btn" onclick="clearAll()" value="Clear All">
+         <input type="submit" class="btn" id="cal-btn" onclick="calculate()" value="Calculate">
+        <br><br>
+        </div>
 
-    <div class="inp">
-        <span id="dete"> 
-            <div style="width:100%;height:5vh;"></div>
-            <span style="white-space: nowrap;">|A| =</span>
-        </span>
-        <div class="matrix" id="matr">
-            <div class="r1" style="white-space: nowrap;">
-                <input type="text" id="a11" class="txtb"><input class="txtb" id="a12" type="text"><input class="txtb" id="a13" type="text"><input class="txtb" id="a14" type="text"><br>
+        <div id="ansl2" style="align-items: left;margin-left:10vw;
+        color:#EA8479">Solution:</div>
+        <br>
+         
+         <div align="center">
+        <div class="opt">
+            <div id="deter" class="lab" style="display:inline-block">
+                <div id="labeladj" style="display:inline-block">Adj(A) =</div>
             </div>
-            <div class="r2" style="white-space: nowrap;">
-                <input class="txtb" id="a21" type="text"><input class="txtb" id="a22" type="text"><input class="txtb" id="a23" type="text"><input class="txtb" id="a24" type="text"><br>
-            </div>
-            <div class="r3" style="white-space: nowrap;">
-                <input type="text" id="a31" class="txtb"><input class="txtb" id="a32" type="text"><input class="txtb" id="a33" type="text"><input class="txtb" id="a34" type="text"><br>
-            </div>
-            <div class="r4" style="white-space: nowrap;">
-                <input class="txtb" id="a41" type="text"><input class="txtb" id="a42" type="text"><input class="txtb" id="a43" type="text"><input class="txtb" id="a44" type="text"><br>
+            <div class="matrix" style="padding:0;margin:0;" id="matri">
+                <div class="rr1" style="white-space: nowrap;">
+                    <input type="text" id="aa11" class="txtb 2x 3x 4x" disabled><input class="txtb 2x 3x 4x" id="aa12" type="text" disabled><input class="txtb 3x 4x" id="aa13" type="text" disabled><input class="txtb 4x" id="aa14" type="text" disabled><br>
+                </div>
+                <div class="rr2" style="white-space: nowrap;">
+                    <input class="txtb 2x 3x 4x" id="aa21" type="text" disabled><input class="txtb 2x 3x 4x" id="aa22" type="text" disabled><input class="txtb 3x 4x" id="aa23" type="text" disabled><input class="txtb 4x" id="aa24" type="text" disabled><br>
+                </div>
+                <div class="rr3" style="white-space: nowrap;">
+                    <input type="text" id="aa31" class="txtb 3x 4x" disabled><input class="txtb 3x 4x" id="aa32" type="text" disabled><input class="txtb 3x 4x" id="aa33" type="text" disabled><input class="txtb 4x" id="aa34" type="text"disabled><br>
+                </div>
+                <div class="rr4" style="white-space: nowrap;">
+                    <input class="txtb 4x" id="aa41" type="text" disabled><input class="txtb 4x" id="aa42" type="text" disabled><input class="txtb 4x" id="aa43" type="text" disabled><input class="txtb 4x" id="aa44" type="text" disabled><br>
+                </div>
             </div>
         </div>
-    </div>
-
-    <input type="submit" class="btn" id="clr-btn" onclick="clearAll()" value="Clear All">
-    <input type="submit" class="btn" id="cal-btn" onclick="calculate()" value="Calculate">
-    
-    <br><br><br><br>
-    <div id="sol-blk" class="sol-block">
-        <label id="ans"></label>
-    </div>
-    
-</div>
-
-<script>
-
-    function clearAll(){
-            var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
-                for(let i = 0; i < 16; i++)
-                {
-                    document.getElementById(txt[i]).value='';
-                }
-                document.getElementById('ans').innerHTML='';
-    };
-
-    function calculate(){
-        var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
-            
 
 
+        <br>
+        <div id="ansl">
+            <label style="color:#EA8479;">Adjoint can be calculated by replacing every element with its cofactor and taking the transpose of the matrix.</label>
+            <img style="margin-top:3vw;width:80%" align="center" id="solim" 
+            src="adj2.png">
+
+        <a href="https://play.google.com/store/apps/details?id=appinventor.ai_kmryashasvi.MatrixMan" 
+        class="clicklinks" target="_blank">
+      <div class="contact-links">
+        <span class="clickables">
         
-        var rad2 = document.getElementById('rad-2');
-        var rad3 = document.getElementById('rad-3');
-        var rad4 = document.getElementById('rad-4');
+        <img id="logos" src="matrix-man-logo.png" 
+        alt="Matrix Man Logo">
+        Download Matrix Man<br><span style="font-size: small;">An All in One Matrix Calculator</span>🔗</span>
+      </div></a>
 
-        var a11 = document.getElementById(txt[0]).value;
-        var a12 = document.getElementById(txt[1]).value;
-        var a21 = document.getElementById(txt[4]).value;
-        var a22 = document.getElementById(txt[5]).value;
+        </div>
+        <br>
 
-        if(rad2.checked)
-        {
-            let tx=['a11','a12','a21','a22'];
-            for(let i = 0; i < 4; i++)
-            {
-                if(document.getElementById(tx[i]).value=='')
-                {
-                    document.getElementById(tx[i]).value=0;
+
+
+        </div>         
+      
+      <script>
+         function clearAll(){
+                 var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
+                     for(let i = 0; i < 16; i++)
+                     {
+                         document.getElementById(txt[i]).value='';
+                     }
+                     document.getElementById('ansl').style.display='none';
+                     document.getElementById('ansl2').style.display='none';
+         
+                     document.querySelector(".opt").style.display = 'none';
+         };
+         
+         function calculate(){
+             document.getElementById('ansl').style.display='block';
+             document.getElementById('ansl2').style.display='block';
+             document.querySelector(".opt").style.display = 'block'; 
+
+             var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44'];
+         
+             var rad2 = document.getElementById('rad-2');
+             var rad3 = document.getElementById('rad-3');
+             var rad4 = document.getElementById('rad-4');
+
+
+            var row1 = document.querySelector('.rr1');
+            var row2 = document.querySelector('.rr2');
+            var row3 = document.querySelector('.rr3');
+            var row4 = document.querySelector('.rr4');
+            var solim = document.getElementById('solim');
+            
+         
+             if(rad2.checked)
+             {
+                 let tx=['a11','a12','a21','a22'];
+                 for(let i = 0; i < 4; i++)
+                 {
+                     if(document.getElementById(tx[i]).value=='')
+                     {
+                         document.getElementById(tx[i]).value=0;
+                     }
+                 }
+
+                row1.style.borderColor = '#000000';
+                row2.style.borderColor = '#000000';
+                row3.style.borderColor = '#ffffff';
+                row4.style.borderColor = '#ffffff';
+         
+                 var a11 = document.getElementById(txt[0]).value;
+                 var a12 = document.getElementById(txt[1]).value;
+                 var a21 = document.getElementById(txt[4]).value;
+                 var a22 = document.getElementById(txt[5]).value;
+         
+                 
+                 document.querySelector(".opt").style.display = 'block';
+                 document.getElementById("aa11").value = a22;
+                 document.getElementById('aa12').value = -1*a12;
+                 document.getElementById("aa21").value = -1*a21;
+                 document.getElementById("aa22").value = a11;
+                 solim.src='adj2.png';
+                 solim.style.display='block';
+                 
+         
+         
+             }
+             else if(rad3.checked)
+             {
+                solim.src='adj3.png';
+                solim.style.display='block';
+
+                 let tx=['a11','a12','a21','a22','a13','a31','a33','a23','a32'];
+                 for(let i = 0; i < 9; i++)
+                 {
+                     if(document.getElementById(tx[i]).value=='')
+                     {
+                         document.getElementById(tx[i]).value=0;
+                     }
+                 }
+
+                 row1.style.borderColor = '#000000';
+                row2.style.borderColor = '#000000';
+                row3.style.borderColor = '#000000';
+                row4.style.borderColor = '#ffffff';
+         
+                 var a11 = document.getElementById('a11').value;
+                 var a12 = document.getElementById('a12').value;
+                 var a13 = document.getElementById('a13').value;
+                 var a21 = document.getElementById('a21').value;
+                 var a22 = document.getElementById('a22').value;
+                 var a23 = document.getElementById('a23').value;
+                 var a31 = document.getElementById('a31').value;
+                 var a32 = document.getElementById('a32').value;
+                 var a33 = document.getElementById('a33').value;
+
+                // Calculate the elements of the adjoint matrix
+                var aa11 = a22 * a33 - a23 * a32;
+                var aa21 = -(a21 * a33 - a23 * a31);
+                var aa31 = a21 * a32 - a22 * a31;
+                var aa12 = -(a12 * a33 - a13 * a32);
+                var aa22 = a11 * a33 - a13 * a31;
+                var aa32 = -(a11 * a32 - a12 * a31);
+                var aa13 = a12 * a23 - a13 * a22;
+                var aa23 = -(a11 * a23 - a13 * a21);
+                var aa33 = a11 * a22 - a12 * a21;
+
+                // Output the results to the corresponding textboxes
+                document.getElementById("aa11").value = aa11;
+                document.getElementById('aa12').value = aa12;
+                document.getElementById("aa13").value = aa13;
+                document.getElementById("aa21").value = aa21;
+                document.getElementById('aa22').value = aa22;
+                document.getElementById("aa23").value = aa23;
+                document.getElementById("aa31").value = aa31;
+                document.getElementById("aa32").value = aa32;
+                document.getElementById("aa33").value = aa33;
+         
+}
+             else
+             {
+                solim.style.display='none';
+                 for(let i = 0; i < 16; i++)
+                 {
+                     if(document.getElementById(txt[i]).value=='')
+                     {
+                         document.getElementById(txt[i]).value=0;
+                     }
+                 }
+                 var a11 = parseInt(document.getElementById('a11').value);
+                 var a12 = parseInt(document.getElementById('a12').value);
+                 var a13 = parseInt(document.getElementById('a13').value);
+                 var a14 = parseInt(document.getElementById('a14').value);
+                 var a21 = parseInt(document.getElementById('a21').value);
+                 var a22 = parseInt(document.getElementById('a22').value);
+                 var a23 = parseInt(document.getElementById('a23').value);
+                 var a24 = parseInt(document.getElementById('a24').value);
+                 var a31 = parseInt(document.getElementById('a31').value);
+                 var a32 = parseInt(document.getElementById('a32').value);
+                 var a33 = parseInt(document.getElementById('a33').value);
+                 var a34 = parseInt(document.getElementById('a34').value);
+                 var a41 = parseInt(document.getElementById('a41').value);
+                 var a42 = parseInt(document.getElementById('a42').value);
+                 var a43 = parseInt(document.getElementById('a43').value);
+                 var a44 = parseInt(document.getElementById('a44').value);
+
+                 row1.style.borderColor = '#000000';
+                row2.style.borderColor = '#000000';
+                row3.style.borderColor = '#000000';
+                row4.style.borderColor = '#000000';
+         
+// Calculate the elements of the adjoint matrix
+                var aa11 = (a22 * a33 * a44 + a23 * a34 * a42 + a24 * a32 * a43) - (a42 * a33 * a24 + a43 * a34 * a22 + a44 * a32 * a23);
+                var aa21 = (a21 * a33 * a44 + a23 * a34 * a41 + a24 * a31 * a43) - (a41 * a33 * a24 + a43 * a34 * a21 + a44 * a31 * a23);
+                var aa31 = (a21 * a32 * a44 + a22 * a34 * a41 + a24 * a31 * a42) - (a41 * a32 * a24 + a42 * a34 * a21 + a44 * a31 * a22);
+                var aa41 = (a21 * a32 * a43 + a22 * a33 * a41 + a23 * a31 * a42) - (a41 * a32 * a23 + a42 * a33 * a21 + a43 * a31 * a22);
+
+                var aa12 = (a12 * a33 * a44 + a13 * a34 * a42 + a14 * a32 * a43) - (a42 * a33 * a14 + a43 * a34 * a12 + a44 * a32 * a13);
+                var aa22 = (a11 * a33 * a44 + a13 * a34 * a41 + a14 * a31 * a43) - (a41 * a33 * a14 + a43 * a34 * a11 + a44 * a31 * a13);
+                var aa32 = (a11 * a32 * a44 + a12 * a34 * a41 + a14 * a31 * a42) - (a41 * a32 * a14 + a42 * a34 * a11 + a44 * a31 * a12);
+                var aa42 = (a11 * a32 * a43 + a12 * a33 * a41 + a13 * a31 * a42) - (a41 * a32 * a13 + a42 * a33 * a11 + a43 * a31 * a12);
+
+                var aa13 = (a12 * a23 * a44 + a13 * a24 * a42 + a14 * a22 * a43) - (a42 * a23 * a14 + a43 * a24 * a12 + a44 * a22 * a13);
+                var aa23 = (a11 * a23 * a44 + a13 * a24 * a41 + a14 * a21 * a43) - (a41 * a23 * a14 + a43 * a24 * a11 + a44 * a21 * a13);
+                var aa33 = (a11 * a22 * a44 + a12 * a24 * a41 + a14 * a21 * a42) - (a41 * a22 * a14 + a42 * a24 * a11 + a44 * a21 * a12);
+                var aa43 = (a11 * a22 * a43 + a12 * a23 * a41 + a13 * a21 * a42) - (a41 * a22 * a13 + a42 * a23 * a11 + a43 * a21 * a12);
+
+                var aa14 = (a12 * a23 * a34 + a13 * a24 * a32 + a14 * a22 * a33) - (a32 * a23 * a14 + a33 * a24 * a12 + a34 * a22 * a13);
+                var aa24 = (a11 * a23 * a34 + a13 * a24 * a31 + a14 * a21 * a33) - (a31 * a23 * a14 + a33 * a24 * a11 + a34 * a21 * a13);
+                var aa34 = (a11 * a22 * a34 + a12 * a24 * a31 + a14 * a21 * a32) - (a31 * a22 * a14 + a32 * a24 * a11 + a34 * a21 * a12);
+                var aa44 = (a11 * a22 * a33 + a12 * a23 * a31 + a13 * a21 * a32) - (a31 * a22 * a13 + a32 * a23 * a11 + a33 * a21 * a12);
+
+
+                // Output the results to the corresponding textboxes
+                document.getElementById("aa11").value = aa11;
+                document.getElementById("aa12").value = aa12*-1;
+                document.getElementById("aa13").value = aa13;
+                document.getElementById("aa14").value = aa14*-1;
+                document.getElementById("aa21").value = aa21*-1;
+                document.getElementById("aa22").value = aa22;
+                document.getElementById("aa23").value = aa23*-1;
+                document.getElementById("aa24").value = aa24;
+                document.getElementById("aa31").value = aa31;
+                document.getElementById("aa32").value = aa32*-1;
+                document.getElementById("aa33").value = aa33;
+                document.getElementById("aa34").value = aa34*-1;
+                document.getElementById("aa41").value = aa41*-1;
+                document.getElementById("aa42").value = aa42;
+                document.getElementById("aa43").value = aa43*-1;
+                document.getElementById("aa44").value = aa44;
+         
+         
+         
+                 var det1 = ((a22)*((a44*a33)-(a34*a43)))+((-1*a23)*((a32*a44)-(a42*a34)))+((a24)*((a43*a32)-(a42*a33)));
+                 let det2 = ((a12)*((a44*a33)-(a34*a43)))+((-1*a13)*((a32*a44)-(a42*a34)))+((a14)*((a43*a32)-(a42*a33)))
+                 let det3 = ((a12)*((a44*a23)-(a24*a43)))+((-1*a13)*((a22*a44)-(a42*a24)))+((a14)*((a43*a22)-(a42*a23)))
+                 let det4 = ((a12)*((a34*a23)-(a24*a33)))+((-1*a13)*((a22*a34)-(a32*a24)))+((a14)*((a33*a22)-(a32*a23)))
+                 
+                 let answer = (a11*det1)-(a21*det2)+(a31*det3)-(a41*det4);
+         
+                 document.getElementById("ans").innerHTML = `Answer : |A| = ${answer}`;
+                 document.getElementById('ans-l0').style.display = 'block';
+                 
+                 delts = document.getElementById('deltas').style.display='block';
+                 document.getElementById("ans-l1").innerHTML = `Hence,\n |A| =           [A₁₁ * Δ₁] + [{${-1} * A₁₂} * Δ₂] + [A₁₃ * Δ₃]+ [{${-1} * A₁₄} * Δ₄]`;
+                 document.getElementById("ans-l2").innerHTML = `|A| =           [{${a11}} * {${det1}}] + [{${-1*a12}} * {${det2}}] + [{${a13}} * {${det3}}] + [{${-1*a14}} * {${det4}}]`;
+                 document.getElementById("ans-l3").innerHTML = `|A| =           [${a11*det1}] + [${-1*a12*det2}] + [${a13*det3}] + [${-1*a14*det4}]`;
+                 document.getElementById("ans-l4").innerHTML = `|A| =           ${(a11*det1) + (-1*a12*det2) + (a13*det3) + (-1*a14*det4)}`;
+             }
+         };
+         
+         
+         var textboxes = document.querySelectorAll('.txtb');
+         
+         textboxes.forEach(function(textbox) {
+             textbox.addEventListener('input', function() {
+                 if (this.classList.contains('txtb')) {
+                     
+                     let val = this.value;
+                     
+                     val = val.toString();
+         
+                     for(var i = 0; i < val.length; i++)
+                     {
+                         var alph = '0123456789-'
+                         if(!(alph.includes(val[i])))
+                         {
+                             val = val.replaceAll(val[i],'');
+                             console.log('caught')
+                         }
+                     
+                     }
+                     if(val[0]=='-')
+                     {
+                         val = val.replaceAll('-','');
+                         val = '-'+val;
+                     }
+                     else{
+                         val = val.replaceAll('-','');
+                     }
+                     this.value = val;
                 }
-            }
+             });
+         });
+         
+         
+         
+         
+         var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
+         var txtt=['aa11','aa12','aa13','aa14','aa21','aa22','aa23','aa24','aa31','aa32','aa33','aa34','aa41','aa42','aa43','aa44',];
+         var radioButtons = document.querySelectorAll('input[name="radio-group"]');
+         var row1 = document.querySelector('.r1');
+                 var row2 = document.querySelector('.r2');
+                 var row3 = document.querySelector('.r3');
+                 var row4 = document.querySelector('.r4');
+         
+         window.onload=function(){
+             document.querySelector(".opt").style.display = 'none';   
+             document.getElementById('ansl').style.display='none'; 
+             document.getElementById('ansl2').style.display='none'; 
 
-            let answer = (a11*a22)-(a21*a12);
+         
+             for(var i = 0; i < 16; i++)
+                         {
+                             var txtbox = document.getElementById(txt[i]);
+                             if(txt[i] == 'a14' ||txt[i] == 'a24' ||txt[i] == 'a34' ||txt[i] == 'a44'||txt[i] == 'a43'||txt[i] == 'a42'||txt[i] == 'a41')
+                             {
+                                 txtbox.style.display='none';
+                             }
+                             else{
+                                 txtbox.style.display='';
+                             }
+         
+                             var txtbox = document.getElementById(txtt[i]);
+                             if(txtt[i] == 'aa14' ||txtt[i] == 'aa24' ||txtt[i] == 'aa34' ||txtt[i] == 'aa44'||txtt[i] == 'aa43'||txtt[i] == 'aa42'||txtt[i] == 'aa41')
+                             {
+                                 txtbox.style.display='none';
+                             }
+                             else{
+                                 txtbox.style.display='';
+                             }
+                         }
+                         row1.style.borderColor = '#000000';
+                        row2.style.borderColor = '#000000';
+                        row3.style.borderColor = '#000000';
+                        row4.style.borderColor = '#ffffff';
 
-            document.getElementById("ans").innerHTML = "Answer : |A| = "+answer.toString();
+                         var matri = document.getElementById('matr');
+                     matri.style.flexBasis='40%';
+                     var matrii = document.getElementById('matri');
+                     matrii.style.flexBasis='40%';
+                     var inpublock = document.querySelector('.inp');
+                     inpublock.style.marginRight='12%';
+                     };
 
-        }
-        else if(rad3.checked)
-        {
-            let tx=['a11','a12','a21','a22','a13','a31','a33','a23','a32'];
-            for(let i = 0; i < 9; i++)
-            {
-                if(document.getElementById(tx[i]).value=='')
-                {
-                    document.getElementById(tx[i]).value=0;
-                }
-            }
-
-        }
-        else
-        {
-            for(let i = 0; i < 16; i++)
-            {
-                if(document.getElementById(txt[i]).value=='')
-                {
-                    document.getElementById(txt[i]).value=0;
-                }
-            }
-
-        }
-
-    };
-
-
-    var textboxes = document.querySelectorAll('.txtb');
-
-    textboxes.forEach(function(textbox) {
-        textbox.addEventListener('input', function() {
-            if (this.classList.contains('txtb')) {
-                
-                let val = this.value;
-                val = val.toString();
-                if(val[0]=='-')
-                {
-                    val = val.replaceAll('-','');
-                    val = '-'+val;
-                }
-                else{
-                    val = val.replaceAll('-','');
-                }
-                this.value = val;
-                
-                // this.value = this.value.replace(/[^0-9-]/g, '');
-                // if(this.value[0]=='-')
-                // {
-                //     this.value.replaceAll('-','');
-                //     this.value = '-'+this.value;
-                //     console.log('hello')
-                // }
-                // else{
-                //     this.value.replaceAll('-','');
-                // }
-
-                           
-            }
-        });
-    });
-
-
-
-    
-    var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
-    var radioButtons = document.querySelectorAll('input[name="radio-group"]');
-
-    window.onload=function(){
-        for(var i = 0; i < 16; i++)
-                    {
-                        var txtbox = document.getElementById(txt[i]);
-                        if(txt[i] == 'a14' ||txt[i] == 'a24' ||txt[i] == 'a34' ||txt[i] == 'a44'||txt[i] == 'a43'||txt[i] == 'a42'||txt[i] == 'a41')
-                        {
-                            txtbox.style.display='none';
-                        }
-                        else{
-                            txtbox.style.display='';
-                        }
-                    }
-                    var row1 = document.querySelector('.r1');
-                var row2 = document.querySelector('.r2');
-                var row3 = document.querySelector('.r3');
-                var row4 = document.querySelector('.r4');
-                    row1.style.borderColor = '#000000';
-                    row2.style.borderColor = '#000000';
-                    row3.style.borderColor = '#000000';
-                    row4.style.borderColor = '#ffffff';
-                    var matri = document.getElementById('matr');
-                matri.style.flexBasis='40%';
-                var inpublock = document.querySelector('.inp');
-                inpublock.style.marginRight='12%';
-    };
-  var indictor = 0;
-    radioButtons.forEach(function(radioButton) {
-        radioButton.addEventListener('change', function() {
-            if (this.checked) {
-                var radVal = this.value;
-                var row1 = document.querySelector('.r1');
-                var row2 = document.querySelector('.r2');
-                var row3 = document.querySelector('.r3');
-                var row4 = document.querySelector('.r4');
-                if(radVal==2)
-                {
-                    for(var i = 0; i < 16; i++)
-                    {
-                        var txtbox = document.getElementById(txt[i]);
-                        if(txt[i] == 'a11' ||txt[i] == 'a21' ||txt[i] == 'a12' ||txt[i] == 'a22')
-                        {
-                            txtbox.style.display='';
-                        }
-                        else{
-                            txtbox.style.display='none';
-                        }
-                    }
-                    
-                    row1.style.borderColor = '#000000';
-                    row2.style.borderColor = '#000000';
-                    row3.style.borderColor = '#ffffff';
-                    row4.style.borderColor = '#ffffff';
-                    var matri = document.getElementById('matr');
-                matri.style.flexBasis='1%';
-                var inpublock = document.querySelector('.inp');
-                indictor = 1;
-                inpublock.style.transform='translateX(-15vw)';
-                }
-                else if(radVal==3)
-                {
-                    for(var i = 0; i < 16; i++)
-                    {
-                        var txtbox = document.getElementById(txt[i]);
-                        if(txt[i] == 'a14' ||txt[i] == 'a24' ||txt[i] == 'a34' ||txt[i] == 'a44'||txt[i] == 'a43'||txt[i] == 'a42'||txt[i] == 'a41')
-                        {
-                            txtbox.style.display='none';
-                        }
-                        else{
-                            txtbox.style.display='';
-                        }
-                    }
-                    row1.style.borderColor = '#000000';
-                    row2.style.borderColor = '#000000';
-                    row3.style.borderColor = '#000000';
-                    row4.style.borderColor = '#ffffff';
-                    var matri = document.getElementById('matr');
-                matri.style.flexBasis='40%';
-                var inpublock = document.querySelector('.inp');
-                inpublock.style.marginRight='12%';
-                if(indictor == 1)
-                    inpublock.style.transform='translateX(2vw)';
-                    indictor = 0;
-                }
-                else
-                {
-                    for(var i = 0; i < 16; i++)
-                    {
-                        var txtbox = document.getElementById(txt[i]);
-                        txtbox.style.display='';
-                    }
-                    row1.style.borderColor = '#000000';
-                    row2.style.borderColor = '#000000';
-                    row3.style.borderColor = '#000000';
-                    row4.style.borderColor = '#000000';
-                    var matri = document.getElementById('matr');
-                matri.style.flexBasis='auto';
-                var inpublock = document.querySelector('.inp');
-                inpublock.style.marginRight='9%';
-                if(indictor == 1)
-                    inpublock.style.transform='translateX(3vw)';
-                    indictor = 0;
-                }
-            }
-        });
-    });
-</script>
-</body>
+         var indictor = 0;
+         radioButtons.forEach(function(radioButton) {
+             radioButton.addEventListener('change', function() {
+                 if (this.checked) {
+                    document.querySelector(".opt").style.display = 'none';
+                    document.getElementById('ansl').style.display='none';
+                    document.getElementById('ansl2').style.display='none';
+                    clearAll()
+                     var radVal = this.value;
+                     var row1 = document.querySelector('.r1');
+                     var row2 = document.querySelector('.r2');
+                     var row3 = document.querySelector('.r3');
+                     var row4 = document.querySelector('.r4');
+                     if(radVal==2)
+                     {
+                         for(var i = 0; i < 16; i++)
+                         {
+                             var txtbox = document.getElementById(txt[i]);
+                             if(txt[i] == 'a11' ||txt[i] == 'a21' ||txt[i] == 'a12' ||txt[i] == 'a22')
+                             {
+                                 txtbox.style.display='';
+                             }
+                             else{
+                                 txtbox.style.display='none';
+                             }
+                             var txtbox = document.getElementById(txtt[i]);
+                             if(txtt[i] == 'aa11' ||txtt[i] == 'aa21' ||txtt[i] == 'aa12' ||txtt[i] == 'aa22')
+                             {
+                                 txtbox.style.display='';
+                             }
+                             else{
+                                 txtbox.style.display='none';
+                             }
+                         }
+                         
+                         row1.style.borderColor = '#000000';
+                         row2.style.borderColor = '#000000';
+                         row3.style.borderColor = '#ffffff';
+                         row4.style.borderColor = '#ffffff';
+                         var matri = document.getElementById('matr');
+                         matri.style.flexBasis='1%';
+                         var matrii = document.getElementById('matri');
+                         matrii.style.flexBasis='1%';
+                         var inpublock = document.querySelector('.inp');
+                         indictor = 1;
+                         inpublock.style.transform='translateX(-15vw)';
+                     }
+                     else if(radVal==3)
+                     {
+                         for(var i = 0; i < 16; i++)
+                         {
+                             var txtbox = document.getElementById(txt[i]);
+                             if(txt[i] == 'a14' ||txt[i] == 'a24' ||txt[i] == 'a34' ||txt[i] == 'a44'||txt[i] == 'a43'||txt[i] == 'a42'||txt[i] == 'a41')
+                             {
+                                 txtbox.style.display='none';
+                             }
+                             else{
+                                 txtbox.style.display='';
+                             }
+         
+                             var txtbox = document.getElementById(txtt[i]);
+                             if(txtt[i] == 'aa14' ||txtt[i] == 'aa24' ||txtt[i] == 'aa34' ||txtt[i] == 'aa44'||txtt[i] == 'aa43'||txtt[i] == 'aa42'||txtt[i] == 'aa41')
+                             {
+                                 txtbox.style.display='none';
+                             }
+                             else{
+                                 txtbox.style.display='';
+                             }
+                         }
+                         row1.style.borderColor = '#000000';
+                         row2.style.borderColor = '#000000';
+                         row3.style.borderColor = '#000000';
+                         row4.style.borderColor = '#ffffff';
+                         var matri = document.getElementById('matr');
+                         matri.style.flexBasis='40%';
+                         var matrii = document.getElementById('matri');
+                         matrii.style.flexBasis='40%';
+                         var inpublock = document.querySelector('.inp');
+                         inpublock.style.marginRight='12%';
+                         if(indictor == 1)
+                             inpublock.style.transform='translateX(2vw)';
+                         indictor = 0;
+                     }
+                     else
+                     {
+                         for(var i = 0; i < 16; i++)
+                         {
+                             var txtbox = document.getElementById(txt[i]);
+                             txtbox.style.display='';
+                         }
+                         for(var i = 0; i < 16; i++)
+                         {
+                             var txtbox = document.getElementById(txtt[i]);
+                             txtbox.style.display='';            
+                         }
+                         row1.style.borderColor = '#000000';
+                         row2.style.borderColor = '#000000';
+                         row3.style.borderColor = '#000000';
+                         row4.style.borderColor = '#000000';
+                         var matri = document.getElementById('matr');
+                         matri.style.flexBasis='auto';
+                         var matrii = document.getElementById('matri');
+                         matrii.style.flexBasis='auto';
+                         var inpublock = document.querySelector('.inp');
+                         inpublock.style.marginRight='9%';
+                         if(indictor == 1)
+                             inpublock.style.transform='translateX(3vw)';
+                             indictor = 0;
+                         }
+                 }
+             });
+         });
+      </script>
+   </body>
 </html>

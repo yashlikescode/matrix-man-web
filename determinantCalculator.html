@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Determinant Calculator</title>
+    <link rel="stylesheet" href="dets.css">
     <style>
         html,
         body {
@@ -13,8 +14,8 @@
         .btn{
             margin:1vw;
             width:30vw;
-            height:5vh;
-            font-size: 3vh;
+            height:8vw;
+            font-size: 4vw;
             border-radius:2vw;
             background-color: #4287f5;
             color:white;
@@ -22,13 +23,13 @@
 
         .txtb{
             margin:1vw;
-            height:4vh;
+            height:6vw;
             width:12vw;
-            font-size:3vh;
+            font-size:4vw;
         }
         .inp{
-            margin:3vh;
-            font-size:3vh;
+            margin:3vw;
+            font-size:4vw;
             justify-content: center;
             display:flex;
         }
@@ -78,21 +79,21 @@
         }
 
         .banner{
-            height:5vh;
-            padding-bottom:2vh;
-            padding-top:1.5vh;
+            height:9vw;
+            padding-bottom:2vw;
+            padding-top:3vw;
             border:0;
             margin:0;
-            margin-bottom:6vh;
+            margin-bottom:8vw;
             background-color: #4287f5;
-            font-size:4vh;
+            font-size:7vw;
             justify-content: center;
             color:#ffffff;
         }
         .radio-group {
         font-size: 5vw;
         justify-content: center;
-        margin-bottom:4vh;
+        margin-bottom:8vw;
         background-color:#ccd7e8;
         border-radius:2vw;
         display:inline;
@@ -105,7 +106,7 @@
         }
 
         .radio-group input[type="radio"] {
-        transform: scale(1.5) translateY(-0.1vh); /* Adjust the scale factor as needed */
+        transform: scale(1.5) translateY(-0.2vw); /* Adjust the scale factor as needed */
         margin-right:1vw; /* Adjust the spacing between radio buttons and text as needed */
         justify-content: center;    
     }
@@ -115,16 +116,73 @@
         font-size: 6vw;
     }
     .ansl{
+        font-size: 4.5vw;
         text-align:left;
         display:block;
         margin-left:10vw;
-        margin-top:1vh;
+        margin-top:2vw;
+        white-space: nowrap;
     }
+
+    .labmat {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.labli1 {
+    border-left: solid 1px black;
+    padding:0.1cm .2cm 0.1cm 0.1cm;
+    margin: 0;
+}
+
+.labli2 {
+    border-right: solid 1px black;
+    padding:0.1cm 0.1cm 0.1cm .2cm;
+    margin: 0;
+}
+
+.labmati {
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.labli {
+    padding:0.1cm .2cm 0.1cm 0.1cm;
+    margin: 0;
+}
+
+.clicklinks{
+  text-decoration: none;
+}
+.clickables{
+  border:solid rgba(0, 124, 191, 0.4) 1px;
+  padding:0.25cm;
+  border-radius:0.25cm;
+  display:grid;
+  place-items: center;
+}
+#logos{
+
+  margin:0.25cm;
+  width:1cm;
+  height:1cm;
+  border-radius: 0.1cm;
+}
+
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
 <div align="center">
     <div class="banner">Determinant Calculator</div>
+    <!-- <div class="matrixman" style="margin:.5cm">
+        <span style="font-size: 3vw;">All in One App</span><br>
+        <img src="matrix-man-logo.png" 
+        style="height:1cm;width:1cm;border-radius: .25cm;"><br>
+        <span style="font-size: 3vw;">Matrix Man</span>
+    </div> -->
+    
+
     <div class="radio-group">
         
         Order:
@@ -146,21 +204,21 @@
 
     <div class="inp">
         <span id="dete"> 
-            <div style="width:100%;height:5vh;"></div>
+            <div style="width:100%;height:10vw;"></div>
             <span style="white-space: nowrap;">|A| =</span>
         </span>
         <div class="matrix" id="matr">
             <div class="r1" style="white-space: nowrap;">
-                <input type="text" id="a11" class="txtb"><input class="txtb" id="a12" type="text"><input class="txtb" id="a13" type="text"><input class="txtb" id="a14" type="text"><br>
+                <input type="text" id="a11" class="txtb" inputmode="numeric"><input class="txtb" id="a12" type="text" inputmode="numeric"><input class="txtb" id="a13" type="text" inputmode="numeric"><input class="txtb" id="a14" type="text" inputmode="numeric"><br>
             </div>
             <div class="r2" style="white-space: nowrap;">
-                <input class="txtb" id="a21" type="text"><input class="txtb" id="a22" type="text"><input class="txtb" id="a23" type="text"><input class="txtb" id="a24" type="text"><br>
+                <input class="txtb" id="a21" type="text" inputmode="numeric"><input class="txtb" id="a22" type="text" inputmode="numeric"><input class="txtb" id="a23" type="text" inputmode="numeric"><input class="txtb" id="a24" type="text" inputmode="numeric"><br>
             </div>
             <div class="r3" style="white-space: nowrap;">
-                <input type="text" id="a31" class="txtb"><input class="txtb" id="a32" type="text"><input class="txtb" id="a33" type="text"><input class="txtb" id="a34" type="text"><br>
+                <input type="text" id="a31" class="txtb" inputmode="numeric"><input class="txtb" id="a32" type="text" inputmode="numeric"><input class="txtb" id="a33" type="text" inputmode="numeric"><input class="txtb" id="a34" type="text" inputmode="numeric"><br>
             </div>
             <div class="r4" style="white-space: nowrap;">
-                <input class="txtb" id="a41" type="text"><input class="txtb" id="a42" type="text"><input class="txtb" id="a43" type="text"><input class="txtb" id="a44" type="text"><br>
+                <input class="txtb" id="a41" type="text" inputmode="numeric"><input class="txtb" id="a42" type="text" inputmode="numeric"><input class="txtb" id="a43" type="text" inputmode="numeric"><input class="txtb" id="a44" type="text" inputmode="numeric"><br>
             </div>
         </div>
     </div>
@@ -168,22 +226,117 @@
     <input type="submit" class="btn" id="clr-btn" onclick="clearAll()" value="Clear All">
     <input type="submit" class="btn" id="cal-btn" onclick="calculate()" value="Calculate">
     
-    <br><br><br><br>
+    <br><br>
     <div id="sol-blk" class="sol-block">
         <label id="ans"></label><br><br>
-        <label id="ans-l0" style="align-self:left">
-            <span style="color:#4287f5; margin-bottom:2vh;">Step-By-Step Solution: </span>
+        <label id="ans-l0" style="align-self:left;">
+            <span style="color:#4287f5; margin-bottom:4vw;">Step-By-Step Solution: </span>
             <br>By expanding the given determinant, we get,</label>
-        <label id="ans-l1" class="ansl"></label>
+
+        <!-- <div id="deltas">
+            <div style="white-space: nowrap;padding:0;margin:0;display:flex;transform:translateX(-20%)">
+                <span style="width:10%;display:flex;flex:1;margin-right:3%;margin-top:12%;padding:0;"> 
+                    <div style="width:100%;height:10vw;"></div>
+                    <span style="white-space: nowrap;justify-self: center;">Δ<sub>1</sub> = </span>
+                </span>
+                <div sytle="width:60%;flex:1;padding:0;border-left:solid 2px;border-right:solid 2px">
+                    <div class="r1" style="white-space: nowrap;">
+                        <input type="text" id="a111" class="txtb" disabled><input class="txtb" id="a112" type="text" disabled><input class="txtb" id="a113" type="text" disabled>
+                    </div>
+                    <div class="r1" style="white-space: nowrap;">
+                        <input class="txtb" id="a121" type="text" disabled><input class="txtb" id="a122" type="text" disabled><input class="txtb" id="a123" type="text" disabled><br>
+                    </div>
+                    <div class="r1" style="white-space: nowrap;">
+                        <input type="text" id="a131" class="txtb" disabled><input class="txtb" id="a132" type="text" disabled><input class="txtb" id="a133" type="text" disabled><br>
+                    </div>
+                </div>
+            </div>
+<br>
+            <div style="white-space: nowrap;padding:0;margin:0;display:flex;transform:translateX(-20%)">
+                <span style="width:10%;display:flex;flex:1;margin-right:3%;margin-top:12%;padding:0;"> 
+                    <div style="width:100%;height:10vw;"></div>
+                    <span style="white-space: nowrap;justify-self: center;">Δ<sub>2</sub> = </span>
+                </span>
+                <div sytle="width:60%;flex:1;padding:0;border-left:solid 2px;border-right:solid 2px">
+                    <div class="r1" style="white-space: nowrap;">
+                        <input type="text" id="a211" class="txtb" disabled><input class="txtb" id="a212" type="text" disabled><input class="txtb" id="a213" type="text" disabled>
+                    </div>
+                    <div class="r1" style="white-space: nowrap;">
+                        <input class="txtb" id="a221" type="text" disabled><input class="txtb" id="a222" type="text" disabled><input class="txtb" id="a223" type="text" disabled><br>
+                    </div>
+                    <div class="r1" style="white-space: nowrap;">
+                        <input type="text" id="a231" class="txtb" disabled><input class="txtb" id="a232" type="text" disabled><input class="txtb" id="a233" type="text" disabled><br>
+                    </div>
+                </div>
+            </div>
+<br>
+            <div style="white-space: nowrap;padding:0;margin:0;display:flex;transform:translateX(-20%)">
+                <span style="width:10%;display:flex;flex:1;margin-right:3%;margin-top:12%;padding:0;"> 
+                    <div style="width:100%;height:10vw;"></div>
+                    <span style="white-space: nowrap;justify-self: center;">Δ<sub>3</sub> = </span>
+                </span>
+                <div sytle="width:60%;flex:1;padding:0;border-left:solid 2px;border-right:solid 2px">
+                    <div class="r1" style="white-space: nowrap;">
+                        <input type="text" id="a311" class="txtb" disabled><input class="txtb" id="a312" type="text" disabled><input class="txtb" id="a313" type="text" disabled>
+                    </div>
+                    <div class="r1" style="white-space: nowrap;">
+                        <input class="txtb" id="a321" type="text" disabled><input class="txtb" id="a322" type="text" disabled><input class="txtb" id="a323" type="text" disabled><br>
+                    </div>
+                    <div class="r1" style="white-space: nowrap;">
+                        <input type="text" id="a331" class="txtb" disabled><input class="txtb" id="a332" type="text" disabled><input class="txtb" id="a333" type="text" disabled><br>
+                    </div>
+                </div>
+            </div>
+        
+        <br>
+        <div style="white-space: nowrap;padding:0;margin:0;display:flex;transform:translateX(-20%)">
+            <span style="width:10%;display:flex;flex:1;margin-right:3%;margin-top:12%;padding:0;"> 
+                <div style="width:100%;height:10vw;"></div>
+                <span style="white-space: nowrap;justify-self: center;">Δ<sub>4</sub> = </span>
+            </span>
+            <div sytle="width:60%;flex:1;padding:0;border-left:solid 2px;border-right:solid 2px">
+                <div class="r1" style="white-space: nowrap;">
+                    <input type="text" id="a411" class="txtb" disabled><input class="txtb" id="a412" type="text" disabled><input class="txtb" id="a413" type="text" disabled>
+                </div>
+                <div class="r1" style="white-space: nowrap;">
+                    <input class="txtb" id="a421" type="text" disabled><input class="txtb" id="a422" type="text" disabled><input class="txtb" id="a423" type="text" disabled><br>
+                </div>
+                <div class="r1" style="white-space: nowrap;">
+                    <input type="text" id="a431" class="txtb" disabled><input class="txtb" id="a432" type="text" disabled><input class="txtb" id="a433" type="text" disabled><br>
+                </div>
+            </div>
+        </div><br>
+    </div> -->
+    </div>
+
+
+
+        <div class="step-by-step" class ='ansl' id="hellostep" style="overflow:scroll;"  style="margin-right:2cm;">
+        <label id="ans-l1" class="ansl" style="margin-right:2cm;"></label>
         <label id="ans-l2" class="ansl"></label>
         <label id="ans-l3" class="ansl"></label>
         <label id="ans-l4" class="ansl"></label>
+        <label id="ans-l5" class="ansl"></label>
+        <label id="ans-l6" class="ansl"></label>
+
+        <br>
+        <a href="https://play.google.com/store/apps/details?id=appinventor.ai_kmryashasvi.MatrixMan" 
+        class="clicklinks" target="_blank">
+      <div class="contact-links">
+        <span class="clickables">
+        
+        <img id="logos" src="matrix-man-logo.png" 
+        alt="Matrix Man Logo">
+        Download Matrix Man<br><span style="font-size: small;">An All in One Matrix Calculator</span>🔗</span>
+      </div></a>
+        </div>
     </div>
+
+
     
 </div>
 
 <script>
-
     function clearAll(){
             var txt=['a11','a12','a13','a14','a21','a22','a23','a24','a31','a32','a33','a34','a41','a42','a43','a44',];
                 for(let i = 0; i < 16; i++)
@@ -195,6 +348,11 @@
                 document.getElementById('ans-l1').innerHTML='';
                 document.getElementById('ans-l2').innerHTML='';
                 document.getElementById('ans-l3').innerHTML='';
+                document.getElementById('ans-l4').innerHTML='';
+                document.getElementById('ans-l5').innerHTML='';
+                document.getElementById('ans-l6').innerHTML='';
+                //delts = document.getElementById('deltas').style.display='none';
+                document.getElementById('hellostep').style.display='none';
     };
 
     function calculate(){
@@ -206,6 +364,7 @@
         var rad2 = document.getElementById('rad-2');
         var rad3 = document.getElementById('rad-3');
         var rad4 = document.getElementById('rad-4');
+        document.getElementById('hellostep').style.display='block';
 
 
 
@@ -229,9 +388,10 @@
 
             document.getElementById("ans").innerHTML = `Answer : |A| = ${answer}`;
             document.getElementById('ans-l0').style.display = 'block';
-            document.getElementById("ans-l1").innerHTML = `|A| =           [(${a11}*${a22})-(${a21}*${a12})]`;
-            document.getElementById("ans-l2").innerHTML = `|A| =           [(${a11*a22})-(${a21*a12})]`;
-            document.getElementById("ans-l3").innerHTML = `|A| =           ${answer}`;
+            
+            document.getElementById("ans-l1").innerHTML = `|A| =           [(${a11} * ${a22}) - (${a21} * ${a12})]`;
+            document.getElementById("ans-l2").innerHTML = `|A| =           [(${a11*a22}) - (${a21*a12})]`;
+            document.getElementById("ans-l3").innerHTML = `|A| =           ${(a11*a22)-(a21*a12)}`;
 
 
         }
@@ -246,6 +406,42 @@
                 }
             }
 
+            var a11 = document.getElementById('a11').value;
+            var a12 = document.getElementById('a12').value;
+            var a13 = document.getElementById('a13').value;
+            var a21 = document.getElementById('a21').value;
+            var a22 = document.getElementById('a22').value;
+            var a23 = document.getElementById('a23').value;
+            var a31 = document.getElementById('a31').value;
+            var a32 = document.getElementById('a32').value;
+            var a33 = document.getElementById('a33').value;
+
+            let answer = ((a11)*((a22*a33)-(a32*a23)))+((-1*a12)*((a21*a33)-(a31*a23)))+((a13)*((a21*a32)-(a31*a22)));
+
+            document.getElementById("ans").innerHTML = `Answer : |A| = ${answer}`;
+            document.getElementById('ans-l0').style.display = 'block';
+            document.getElementById("ans-l1").innerHTML = `|A| =               
+        (${a11}) <div class="labmat">
+        <label class="labli1">${a22}</label><label class="labli2">${a23}</label>
+        <label class="labli1">${a32}</label><label class="labli2">${a33}</label>
+        </div>
+        -
+        (${a12}) <div class="labmat">
+        <label class="labli1">${a21}</label><label class="labli2">${a23}</label>
+        <label class="labli1">${a31}</label><label class="labli2">${a33}</label>
+        </div>
+        +
+        (${a13}) <div class="labmat">
+        <label class="labli1">${a21}</label><label class="labli2">${a22}</label>
+        <label class="labli1">${a31}</label><label class="labli2">${a32}</label>
+        </div>
+        <span style="color:white">...</span>
+    `;
+            //document.getElementById("ans-l2").innerHTML = `|A| =           [{${a11}} * {(${a22*a33}) - (${a32*a23})}] + [{${-1*a12}} * {(${a21*a33}) - (${a31*a23})}] + [{${a13}} * {(${a21*a32}) - (${a31*a22})}]`;
+            document.getElementById("ans-l3").innerHTML = `|A| =           [(${a11}) * (${(a22*a33)-(a32*a23)})] + [(${-1*a12})* (${(a21*a33)-(a31*a23)})] + [(${a13}) * (${(a21*a32)-(a31*a22)})]`;
+            document.getElementById("ans-l4").innerHTML = `|A| =           [${a11*((a22*a33)-(a32*a23))}] + [${-1*a12*((a21*a33)-(a31*a23))}] + [${a13*((a21*a32)-(a31*a22))}]`;
+            document.getElementById("ans-l5").innerHTML = `|A| =           ${((a11*((a22*a33)-(a32*a23)))+(-1*a12*((a21*a33)-(a31*a23)))+(a13*((a21*a32)-(a31*a22))))}`;
+
         }
         else
         {
@@ -256,6 +452,108 @@
                     document.getElementById(txt[i]).value=0;
                 }
             }
+            var a11 = parseInt(document.getElementById('a11').value);
+            var a12 = parseInt(document.getElementById('a12').value);
+            var a13 = parseInt(document.getElementById('a13').value);
+            var a14 = parseInt(document.getElementById('a14').value);
+            var a21 = parseInt(document.getElementById('a21').value);
+            var a22 = parseInt(document.getElementById('a22').value);
+            var a23 = parseInt(document.getElementById('a23').value);
+            var a24 = parseInt(document.getElementById('a24').value);
+            var a31 = parseInt(document.getElementById('a31').value);
+            var a32 = parseInt(document.getElementById('a32').value);
+            var a33 = parseInt(document.getElementById('a33').value);
+            var a34 = parseInt(document.getElementById('a34').value);
+            var a41 = parseInt(document.getElementById('a41').value);
+            var a42 = parseInt(document.getElementById('a42').value);
+            var a43 = parseInt(document.getElementById('a43').value);
+            var a44 = parseInt(document.getElementById('a44').value);
+
+            // document.getElementById('a111').value = a22;
+            // document.getElementById('a112').value = a23;
+            // document.getElementById('a113').value = a24;
+            // document.getElementById('a121').value = a32;
+            // document.getElementById('a122').value = a33;
+            // document.getElementById('a123').value = a34;
+            // document.getElementById('a131').value = a42;
+            // document.getElementById('a132').value = a43;
+            // document.getElementById('a133').value = a44;
+
+            // document.getElementById('a211').value = a21;
+            // document.getElementById('a212').value = a23;
+            // document.getElementById('a213').value = a24;
+            // document.getElementById('a221').value = a31;
+            // document.getElementById('a222').value = a33;
+            // document.getElementById('a223').value = a34;
+            // document.getElementById('a231').value = a41;
+            // document.getElementById('a232').value = a43;
+            // document.getElementById('a233').value = a44;
+
+            // document.getElementById('a311').value = a21;
+            // document.getElementById('a312').value = a22;
+            // document.getElementById('a313').value = a24;
+            // document.getElementById('a321').value = a31;
+            // document.getElementById('a322').value = a32;
+            // document.getElementById('a323').value = a34;
+            // document.getElementById('a331').value = a41;
+            // document.getElementById('a332').value = a42;
+            // document.getElementById('a333').value = a44;
+
+            // document.getElementById('a411').value = a21;
+            // document.getElementById('a412').value = a22;
+            // document.getElementById('a413').value = a23;
+            // document.getElementById('a421').value = a31;
+            // document.getElementById('a422').value = a32;
+            // document.getElementById('a423').value = a33;
+            // document.getElementById('a431').value = a41;
+            // document.getElementById('a432').value = a42;
+            // document.getElementById('a433').value = a43;
+
+
+
+            var det1 = ((a22)*((a44*a33)-(a34*a43)))+((-1*a23)*((a32*a44)-(a42*a34)))+((a24)*((a43*a32)-(a42*a33)));
+            let det2 = ((a12)*((a44*a33)-(a34*a43)))+((-1*a13)*((a32*a44)-(a42*a34)))+((a14)*((a43*a32)-(a42*a33)))
+            let det3 = ((a12)*((a44*a23)-(a24*a43)))+((-1*a13)*((a22*a44)-(a42*a24)))+((a14)*((a43*a22)-(a42*a23)))
+            let det4 = ((a12)*((a34*a23)-(a24*a33)))+((-1*a13)*((a22*a34)-(a32*a24)))+((a14)*((a33*a22)-(a32*a23)))
+            
+            let answer = (a11*det1)-(a21*det2)+(a31*det3)-(a41*det4);
+
+            document.getElementById("ans").innerHTML = `Answer : |A| = ${answer}`;
+            document.getElementById('ans-l0').style.display = 'block';
+            
+            //delts = document.getElementById('deltas').style.display='block';
+            document.getElementById("ans-l1").innerHTML = `Hence,\n |A| = 
+            
+        (${a11}) <div class="labmati">
+        <label class="labli1">${a22}</label><label class="labli">${a23}</label><label class="labli2">${a24}</label>
+        <label class="labli1">${a32}</label><label class="labli">${a33}</label><label class="labli2">${a34}</label>
+        <label class="labli1">${a42}</label><label class="labli">${a43}</label><label class="labli2">${a44}</label>
+        </div>
+        -
+        (${a12}) <div class="labmati">
+        <label class="labli1">${a21}</label><label class="labli">${a23}</label><label class="labli2">${a24}</label>
+        <label class="labli1">${a31}</label><label class="labli">${a33}</label><label class="labli2">${a34}</label>
+        <label class="labli1">${a41}</label><label class="labli">${a43}</label><label class="labli2">${a44}</label>
+        </div>
+        +
+        (${a13}) <div class="labmati">
+        <label class="labli1">${a21}</label><label class="labli">${a22}</label><label class="labli2">${a24}</label>
+        <label class="labli1">${a31}</label><label class="labli">${a32}</label><label class="labli2">${a34}</label>
+        <label class="labli1">${a41}</label><label class="labli">${a42}</label><label class="labli2">${a44}</label>
+        </div>
+        -
+        (${a14}) <div class="labmati">
+        <label class="labli1">${a21}</label><label class="labli">${a22}</label><label class="labli2">${a23}</label>
+        <label class="labli1">${a31}</label><label class="labli">${a32}</label><label class="labli2">${a33}</label>
+        <label class="labli1">${a41}</label><label class="labli">${a42}</label><label class="labli2">${a43}</label>
+        </div><span style="color:white">......</span>`;
+
+            //[A₁₁ * Δ₁] + [{${-1} * A₁₂} * Δ₂] + [A₁₃ * Δ₃]+ [{${-1} * A₁₄} * Δ₄]`;
+            document.getElementById("ans-l2").innerHTML = `|A| =           [(${a11}) * (${det1})] - [(${a12}) * (${det2})] + [(${a13}) * (${det3})] - [(${a14}) * (${det4})]`;
+            document.getElementById("ans-l3").innerHTML = `|A| =           [${a11*det1}] - [${a12*det2}] + [${a13*det3}] - [${a14*det4}]`;
+            document.getElementById("ans-l4").innerHTML = `|A| =           ${(a11*det1) + (-1*a12*det2) + (a13*det3) + (-1*a14*det4)}`;
+            
+
 
         }
 
@@ -269,7 +567,19 @@
             if (this.classList.contains('txtb')) {
                 
                 let val = this.value;
+                
                 val = val.toString();
+
+                for(var i = 0; i < val.length; i++)
+                {
+                    var alph = '0123456789-'
+                    if(!(alph.includes(val[i])))
+                    {
+                        val = val.replaceAll(val[i],'');
+                        console.log('caught')
+                    }
+                
+                }
                 if(val[0]=='-')
                 {
                     val = val.replaceAll('-','');
@@ -303,7 +613,9 @@
     var radioButtons = document.querySelectorAll('input[name="radio-group"]');
 
     window.onload=function(){
+        //delts = document.getElementById('deltas').style.display='none';
         document.getElementById('ans-l0').style.display = 'none';
+        document.getElementById('hellostep').style.display='none';
         for(var i = 0; i < 16; i++)
                     {
                         var txtbox = document.getElementById(txt[i]);
@@ -337,6 +649,7 @@
                 var row2 = document.querySelector('.r2');
                 var row3 = document.querySelector('.r3');
                 var row4 = document.querySelector('.r4');
+                document.getElementById('hellostep').style.display='none';
                 if(radVal==2)
                 {
                     for(var i = 0; i < 16; i++)
@@ -360,6 +673,7 @@
                 var inpublock = document.querySelector('.inp');
                 indictor = 1;
                 inpublock.style.transform='translateX(-15vw)';
+                clearAll()
                 }
                 else if(radVal==3)
                 {
@@ -385,6 +699,7 @@
                 if(indictor == 1)
                     inpublock.style.transform='translateX(2vw)';
                     indictor = 0;
+                    clearAll()
                 }
                 else
                 {
@@ -404,6 +719,7 @@
                 if(indictor == 1)
                     inpublock.style.transform='translateX(3vw)';
                     indictor = 0;
+                    clearAll()
                 }
             }
         });

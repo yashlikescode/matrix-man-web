@@ -1,0 +1,11 @@
+{
+  "name": "try",
+  "version": "1.0.0",
+  "description": "just trying",
+  "main": "det.js",
+  "scripts": {
+    "test": "npm run try"
+  },
+  "author": "yashasvi",
+  "license": "ISC"
+}
